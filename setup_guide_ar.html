@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>واجهة برمجة تطبيقات Doctor Booking - دليل الإعداد</title>
+    <style>
+      :root {
+        --primary-color: #0ea5e9;
+        --secondary-color: #0369a1;
+        --bg-color: #f8fafc;
+        --text-color: #334155;
+        --code-bg: #1e293b;
+        --code-text: #e2e8f0;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        margin: 0;
+        padding: 20px;
+        text-align: right;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+      h1 {
+        color: var(--primary-color);
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 10px;
+        text-align: center;
+      }
+      h2 {
+        color: var(--secondary-color);
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+      }
+      h2::before {
+        content: "📌 ";
+        margin-left: 10px;
+      }
+      p {
+        margin-bottom: 15px;
+      }
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: bold;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .btn {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin: 10px 0;
+        transition: background 0.3s;
+      }
+      .btn:hover {
+        background-color: var(--secondary-color);
+        color: #ffffff;
+        text-decoration: none;
+      }
+      .alert {
+        background-color: #fffbeb;
+        border-right: 4px solid #f59e0b;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 5px 0 0 5px;
+      }
+      pre {
+        background-color: var(--code-bg);
+        color: var(--code-text);
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-family: "Courier New", Courier, monospace;
+        direction: ltr;
+        text-align: left;
+      }
+      code {
+        background-color: #f1f5f9;
+        color: #ef4444;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: "Courier New", Courier, monospace;
+        direction: ltr;
+        display: inline-block;
+      }
+      .file-list {
+        background: #f1f5f9;
+        padding: 15px;
+        border-radius: 5px;
+        list-style-type: square;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Doctor Booking API - دليل الإعداد المحلي</h1>
+      <p>
+        مرحباً بك في دليل إعداد الباك إيند لتطبيق
+        <strong>Doctor Booking</strong>. اتبع هذه الخطوات بعناية لتشغيل سيرفر
+        الباك إيند على جهازك المحلي وربطه بتطبيق فلاتر الخاص بك.
+      </p>
+
+      <h2>الخطوة 1: تثبيت بايثون 3.12.2</h2>
+      <p>
+        لتشغيل هذا المشروع، ستحتاج إلى تثبيت لغة بايثون على جهازك. نحن نستخدم
+        إصداراً محدداً لضمان أقصى درجات التوافق.
+      </p>
+      <ul>
+        <li>
+          قم بتحميل النسخة المطلوبة مباشرة من هنا: <br />
+          <a
+            href="https://www.python.org/ftp/python/3.12.2/python-3.12.2-amd64.exe"
+            class="btn"
+            >تحميل بايثون 3.12.2 (ويندوز 64-بت)</a
+          >
+        </li>
+      </ul>
+      <div class="alert">
+        <strong>⚠️ خطوة هامة جداً:</strong> أثناء عملية التثبيت،
+        <strong>يجب</strong> تفعيل خيار
+        <code>"Add Python 3.12 to PATH"</code> في أسفل نافذة التثبيت قبل الضغط
+        على "Install Now".
+      </div>
+
+      <h2>الخطوة 2: تحميل المشروع</h2>
+      <p>
+        مشروع الباك إيند مستضاف على GitHub. ستحتاج إلى تحميل نسخة منه على جهازك
+        المحلي.
+      </p>
+      <p>
+        <strong>مستودع GitHub:</strong>
+        <a
+          href="https://github.com/Mohammad-Alhajjar/doctor_booking_app_backend"
+          target="_blank"
+          >doctor_booking_app_backend</a
+        >
+      </p>
+      <p>
+        افتح Terminal أو Command Prompt وقم بتشغيل الأمر التالي لنسخ المستودع
+        (Clone):
+      </p>
+      <pre>
+git clone https://github.com/Mohammad-Alhajjar/doctor_booking_app_backend.git</pre
+      >
+      <p>
+        بمجرد اكتمال التحميل، انتقل إلى داخل المجلد الجديد
+        <code>doctor_booking_app_backend</code>.
+      </p>
+
+      <div class="file-list">
+        <strong>ملفات هامة داخل المجلد:</strong>
+        <ul>
+          <li>
+            <code>main.py</code>: ملف كود بايثون الأساسي الذي يحتوي على روابط
+            الـ API.
+          </li>
+          <li>
+            <code>doctor_booking_app_collection.json</code>: ملف مجموعة Postman
+            يمكنك استيراده لاختبار الروابط بسهولة.
+          </li>
+        </ul>
+      </div>
+
+      <h2>الخطوة 3: تشغيل سيرفر الباك إيند</h2>
+      <p>الآن، لنقم بتشغيل السيرفر لكي يتمكن تطبيق فلاتر من الاتصال به.</p>
+      <ol>
+        <li>
+          افتح مجلد المشروع المحمل باستخدام برنامج
+          <strong>Visual Studio Code (VS Code)</strong>.
+        </li>
+        <li>
+          افتح Terminal جديد داخل VS Code من خلال (<code
+            >Terminal -> New Terminal</code
+          >).
+        </li>
+        <li>
+          قم بتثبيت المكتبات المطلوبة عبر تشغيل هذا الأمر:
+          <pre>pip install fastapi uvicorn pydantic</pre>
+        </li>
+        <li>
+          ابدأ تشغيل السيرفر عبر الأمر التالي:
+          <pre>uvicorn main:app --reload</pre>
+        </li>
+      </ol>
+      <p>
+        إذا تمت العملية بنجاح، ستظهر لك رسالة مفادها:
+        <code
+          >Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)</code
+        >.
+      </p>
+
+      <h2>الخطوة 4: ربط فلاتر بالـ API (قاعدة الـ Localhost)</h2>
+      <p>يعتمد ربط تطبيقك بالباك إيند على المنصة التي تستخدمها للاختبار:</p>
+
+      <div class="alert">
+        <strong>📱 محاكي أندرويد (Android Emulator):</strong>
+        <strong>يجب</strong> تغيير رابط الأساس (Base URL) إلى
+        <code>http://10.0.2.2:8000</code>. ذلك لأن المحاكي يرى العنوان
+        <code>127.0.0.1</code> كعنوان داخلي خاص به، بينما العنوان
+        <code>10.0.2.2</code> يشير إلى الـ localhost الخاص بجهاز الكمبيوتر.
+      </div>
+
+      <p>
+        <strong>💻 محاكي iOS، الويب، أو نسخة المكتب (Desktop):</strong>
+        يمكنك الإبقاء على العنوان الافتراضي: <code>http://127.0.0.1:8000</code>.
+      </p>
+
+      <h2>الخطوة 5: الاختبار باستخدام Postman</h2>
+      <p>
+        للتأكد من أن كل شيء يعمل بشكل صحيح، افتح تطبيق <strong>Postman</strong>،
+        واضغط على <strong>Import</strong>، ثم اختر ملف
+        <code>doctor_booking_app_collection.json</code> الذي قمت بتحميله. سيقوم
+        هذا بتحميل جميع الطلبات الجاهزة (تسجيل الدخول، حجز طبيب، إلخ) لتجربتها
+        فوراً!
+      </p>
+    </div>
+  </body>
+</html>

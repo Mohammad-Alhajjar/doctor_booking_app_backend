@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Booking API - Setup Guide</title>
+    <style>
+      :root {
+        --primary-color: #0ea5e9;
+        --secondary-color: #0369a1;
+        --bg-color: #f8fafc;
+        --text-color: #334155;
+        --code-bg: #1e293b;
+        --code-text: #e2e8f0;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+      h1 {
+        color: var(--primary-color);
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 10px;
+        text-align: center;
+      }
+      h2 {
+        color: var(--secondary-color);
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+      }
+      h2::before {
+        content: "📌 ";
+        margin-right: 10px;
+      }
+      p {
+        margin-bottom: 15px;
+      }
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: bold;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .btn {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin: 10px 0;
+        transition: background 0.3s;
+      }
+      .btn:hover {
+        background-color: var(--secondary-color);
+        color: #ffffff;
+        text-decoration: none;
+      }
+      .alert {
+        background-color: #fffbeb;
+        border-left: 4px solid #f59e0b;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 5px 5px 0;
+      }
+      pre {
+        background-color: var(--code-bg);
+        color: var(--code-text);
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-family: "Courier New", Courier, monospace;
+      }
+      code {
+        background-color: #f1f5f9;
+        color: #ef4444;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .file-list {
+        background: #f1f5f9;
+        padding: 15px;
+        border-radius: 5px;
+        list-style-type: square;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Doctor Booking API - Local Setup Guide</h1>
+      <p>
+        Welcome to the backend setup guide for the
+        <strong>Doctor Booking</strong> application. Follow these steps carefully to
+        get the backend server running on your local machine and connect it to
+        your Flutter app.
+      </p>
+
+      <h2>Step 1: Install Python 3.12.2</h2>
+      <p>
+        To run this project, you need Python installed on your computer. We are
+        using a specific version to ensure maximum compatibility.
+      </p>
+      <ul>
+        <li>
+          Download the exact version here: <br />
+          <a
+            href="https://www.python.org/ftp/python/3.12.2/python-3.12.2-amd64.exe"
+            class="btn"
+            >Download Python 3.12.2 (Windows 64-bit)</a
+          >
+        </li>
+      </ul>
+      <div class="alert">
+        <strong>⚠️ CRITICAL STEP:</strong> During the installation process, you
+        <strong>MUST</strong> check the box that says
+        <code>"Add Python 3.12 to PATH"</code> at the bottom of the installation
+        window before clicking "Install Now".
+      </div>
+
+      <h2>Step 2: Download the Project</h2>
+      <p>
+        The backend project is hosted on GitHub. You need to download it to your
+        local machine.
+      </p>
+      <p>
+        <strong>GitHub Repository:</strong>
+        <a
+          href="https://github.com/Mohammad-Alhajjar/doctor_booking_app_backend"
+          target="_blank"
+          >doctor_booking_app_backend</a
+        >
+      </p>
+      <p>
+        Open your terminal or command prompt and run the following command to
+        clone the repository:
+      </p>
+      <pre>git clone https://github.com/Mohammad-Alhajjar/doctor_booking_app_backend.git</pre>
+      <p>
+        Once the download is complete, navigate into the new
+        <code>doctor_booking_app_backend</code> folder.
+      </p>
+
+      <div class="file-list">
+        <strong>Important files inside the folder:</strong>
+        <ul>
+          <li>
+            <code>main.py</code>: The actual Python backend code containing the
+            API endpoints.
+          </li>
+          <li>
+            <code>doctor_booking_app_collection.json</code>: A Postman collection file
+            you can import to easily test the APIs.
+          </li>
+        </ul>
+      </div>
+
+      <h2>Step 3: Run the Backend Server</h2>
+      <p>Now, let's start the server so your Flutter app can talk to it.</p>
+      <ol>
+        <li>
+          Open the extracted project folder in
+          <strong>Visual Studio Code (VS Code)</strong>.
+        </li>
+        <li>
+          Open a new Terminal inside VS Code (<code>Terminal -> New Terminal</code>).
+        </li>
+        <li>
+          Install the required packages by running this command:
+          <pre>pip install fastapi uvicorn pydantic</pre>
+        </li>
+        <li>
+          Start the server by running:
+          <pre>uvicorn main:app --reload</pre>
+        </li>
+      </ol>
+      <p>
+        If successful, you will see a message saying:
+        <code>Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)</code>.
+      </p>
+
+      <h2>Step 4: Connect Flutter to the API (The Localhost Rule)</h2>
+      <p>
+        Connecting your app to the backend depends on the platform you are using
+        for testing:
+      </p>
+
+      <div class="alert">
+        <strong>📱 Android Emulator:</strong> You <strong>must</strong> change
+        the base URL to <code>http://10.0.2.2:8000</code>. This is because the
+        emulator sees <code>127.0.0.1</code> as its own internal address, while
+        <code>10.0.2.2</code> points to your computer's localhost.
+      </div>
+
+      <p>
+        <strong>💻 iOS Simulator, Web, or Desktop:</strong> You can keep the
+        default address: <code>http://127.0.0.1:8000</code>.
+      </p>
+
+      <h2>Step 5: Test with Postman</h2>
+      <p>
+        To verify everything is working, open the <strong>Postman</strong> app,
+        click on <strong>Import</strong>, and select the
+        <code>doctor_booking_app_collection.json</code> file you downloaded earlier.
+        This will load all the pre-configured requests (Login, Book Doctor,
+        etc.) so you can test them instantly!
+      </p>
+    </div>
+  </body>
+</html>
